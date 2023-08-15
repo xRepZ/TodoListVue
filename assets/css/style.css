@@ -1,0 +1,72 @@
+
+body {
+    background-color: #ece6e6;
+    font-size: 24px;
+    font-family: Tahoma, Verdana, Arial;
+    margin: 12px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.btn {
+    color: #817d7d;
+    display: inline-block;
+    cursor: pointer;
+}
+.btn:hover {
+    color: rgb(48, 46, 46);
+}
+input[type="text"] {
+    font-family: inherit;
+    height: 32px;
+    width: 240px;
+}
+input[type="password"] {
+    font-family: inherit;
+    height: 32px;
+    width: 240px;
+}
+.d-flex {
+    display: flex;
+}
+.level {
+    display: flex;
+    align-items: center;
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.mt-5 {
+    margin-top: 5px;
+}
+.ml-10 {
+    margin-left: 10px;
+}
+.done-items span {
+    text-decoration: line-through;
+}
+
+.margin {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    color: #fff;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #c0c0c0;
+}
+
+
+
+
+
+
+
