@@ -1,5 +1,7 @@
 <template>
-
+  <Teleport to="head">
+    <meta name="viewport" :content="screenWidth <= 460 ? 'width=460' : (screenWidth <= 900 ? 'width=900' : 'width=device-width, initial-scale=1.0')" />
+  </Teleport>
   <div v-if="user === null">
     <ul class="menu-bar">
       <li>
@@ -56,6 +58,7 @@
 // import './assets/css/app.css'
 import { RouterLink, RouterView, useRouter } from 'vue-router';
 import { useToken, delToken, user } from './store/'
+import { ref, onMounted, onUnmounted } from 'vue';
 
 useToken(localStorage.getItem('token'))
 
@@ -65,7 +68,17 @@ const logout = () => {
   router.push('/login')
 }
 
-
+// 460, 900
+const screenWidth = ref(window.innerWidth)
+const onResize = () => {
+  screenWidth.value = window.outerWidth
+}
+onMounted(() => {
+  window.addEventListener('resize', onResize)
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', onResize)
+})
 
 </script>
 
@@ -90,15 +103,15 @@ const logout = () => {
   }
   
   /* Маленькие экраны */
-  @media all and (max-width: 900px) {
+  /* @media all and (max-width: 900px) {
     body {
-      /* На маленьких экранах мы больше не используем направление строки, а используем столбец */
+
       
       flex-direction: column;
     }
-  }
+  } */
 
-  @media all and (max-width: 230px) {
+  @media all and (max-width: 460px) {
     body {
       /* На маленьких экранах мы больше не используем направление строки, а используем столбец */
       justify-content:left;
@@ -117,7 +130,7 @@ const logout = () => {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    display: inline-flex;
+    display: flex;
     background-color: rgba(149, 141, 196, 0.4);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);

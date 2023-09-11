@@ -3,7 +3,7 @@ export default {
     async connect() {
         const ws = await new Promise((resolve, reject) => {
             const ws = new WebSocket("wss://todolistwss.freemyip.com/api/ws")
-            // const ws = new WebSocket("ws://localhost:5173/api/ws")
+            //const ws = new WebSocket("ws://todo.my/api/ws")
             ws.onopen = () => {
                 ws.send(JSON.stringify({
                     type: 'init',
